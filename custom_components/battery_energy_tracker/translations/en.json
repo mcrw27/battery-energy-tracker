@@ -1,0 +1,112 @@
+{
+    "config": {
+      "step": {
+        "user": {
+          "title": "Battery Energy Tracker Configuration",
+          "description": "Set up tracking for your battery system",
+          "data": {
+            "battery_count": "Number of batteries (1-16)",
+            "charge_rate": "Charging rate in Watts (100-10000)",
+            "startup_delay": "Startup delay in seconds (0-300)",
+            "scale_factor": "Scale factor for counter values (0.001-10)"
+          }
+        }
+      },
+      "error": {
+        "unknown": "Unexpected error occurred"
+      },
+      "abort": {
+        "already_configured": "Battery Energy Tracker is already configured"
+      }
+    },
+    "options": {
+      "step": {
+        "init": {
+          "title": "Battery Energy Tracker Options",
+          "description": "Modify your battery tracking settings",
+          "data": {
+            "battery_count": "Number of batteries (1-16)",
+            "charge_rate": "Charging rate in Watts (100-10000)",
+            "startup_delay": "Startup delay in seconds (0-300)",
+            "scale_factor": "Scale factor for counter values (0.001-10)"
+          }
+        }
+      }
+    },
+    "services": {
+      "reset_counters": {
+        "name": "Reset Counters",
+        "description": "Reset all energy counters to zero."
+      },
+      "reset_energy_since_charge": {
+        "name": "Reset Energy Since Charge",
+        "description": "Reset only the energy since last charge counter."
+      },
+      "set_charge_state": {
+        "name": "Set Charge State",
+        "description": "Manually set the battery charging state.",
+        "fields": {
+          "is_charging": {
+            "name": "Is Charging",
+            "description": "Whether the battery is charging or not."
+          }
+        }
+      },
+      "adjust_counters": {
+        "name": "Adjust Counters",
+        "description": "Adjust the energy counter values.",
+        "fields": {
+          "discharge_adjustment": {
+            "name": "Discharge Adjustment",
+            "description": "Value to add to the discharge counter."
+          },
+          "charge_adjustment": {
+            "name": "Charge Adjustment",
+            "description": "Value to add to the charge counter."
+          }
+        }
+      },
+      "set_battery_stored_energy": {
+        "name": "Set Battery Stored Energy",
+        "description": "Set the current stored energy for a specific battery.",
+        "fields": {
+          "battery_num": {
+            "name": "Battery Number",
+            "description": "The battery number to set (1-based index)"
+          },
+          "energy_kwh": {
+            "name": "Energy (kWh)",
+            "description": "The amount of energy currently stored in the battery (kWh)"
+          },
+          "capacity_kwh": {
+            "name": "Capacity (kWh)",
+            "description": "The maximum capacity of the battery (kWh). Optional."
+          }
+        }
+      },
+      "set_battery_to_full": {
+        "name": "Set Battery to Full",
+        "description": "Set the stored energy to full capacity for one or all batteries.",
+        "fields": {
+          "battery_num": {
+            "name": "Battery Number",
+            "description": "The battery number to set (1-based index). Leave empty to set all batteries."
+          }
+        }
+      },
+      "set_battery_capacity": {
+        "name": "Set Battery Capacity",
+        "description": "Set the maximum capacity for a specific battery.",
+        "fields": {
+          "battery_num": {
+            "name": "Battery Number",
+            "description": "The battery number to set (1-based index)"
+          },
+          "capacity_kwh": {
+            "name": "Capacity (kWh)",
+            "description": "The maximum capacity of the battery (kWh)"
+          }
+        }
+      }
+    }
+  }

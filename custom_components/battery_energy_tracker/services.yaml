@@ -1,0 +1,121 @@
+reset_counters:
+  name: Reset Counters
+  description: Reset all energy counters to zero.
+
+reset_energy_since_charge:
+  name: Reset Energy Since Charge
+  description: Reset only the energy since last charge counter.
+
+set_charge_state:
+  name: Set Charge State
+  description: Manually set the battery charging state.
+  fields:
+    is_charging:
+      name: Is Charging
+      description: Whether the battery is charging or not.
+      required: true
+      selector:
+        boolean:
+
+adjust_counters:
+  name: Adjust Counters
+  description: Adjust the energy counter values.
+  fields:
+    discharge_adjustment:
+      name: Discharge Adjustment
+      description: Value to add to the discharge counter.
+      required: false
+      selector:
+        number:
+          min: -10000
+          max: 10000
+          step: 1
+          mode: box
+    charge_adjustment:
+      name: Charge Adjustment
+      description: Value to add to the charge counter.
+      required: false
+      selector:
+        number:
+          min: -10000
+          max: 10000
+          step: 1
+          mode: box
+
+set_battery_stored_energy:
+  name: Set Battery Stored Energy
+  description: Set the current stored energy for a specific battery.
+  fields:
+    battery_num:
+      name: Battery Number
+      description: The battery number to set (1-based index)
+      required: true
+      selector:
+        number:
+          min: 1
+          max: 16
+          step: 1
+          mode: box
+    energy_kwh:
+      name: Energy (kWh)
+      description: The amount of energy currently stored in the battery (kWh)
+      required: true
+      selector:
+        number:
+          min: 0
+          max: 20
+          step: 0.1
+          mode: box
+          unit_of_measurement: kWh
+    capacity_kwh:
+      name: Capacity (kWh)
+      description: The maximum capacity of the battery (kWh). Optional.
+      required: false
+      selector:
+        number:
+          min: 0.1
+          max: 20
+          step: 0.1
+          mode: box
+          unit_of_measurement: kWh
+
+set_battery_to_full:
+  name: Set Battery to Full
+  description: Set the stored energy to full capacity for one or all batteries.
+  fields:
+    battery_num:
+      name: Battery Number
+      description: The battery number to set (1-based index). Leave empty to set all batteries.
+      required: false
+      selector:
+        number:
+          min: 1
+          max: 16
+          step: 1
+          mode: box
+
+set_battery_capacity:
+  name: Set Battery Capacity
+  description: Set the maximum capacity for a specific battery.
+  fields:
+    battery_num:
+      name: Battery Number
+      description: The battery number to set (1-based index)
+      required: true
+      selector:
+        number:
+          min: 1
+          max: 16
+          step: 1
+          mode: box
+    capacity_kwh:
+      name: Capacity (kWh)
+      description: The maximum capacity of the battery (kWh)
+      required: true
+      selector:
+        number:
+          min: 0.1
+          max: 20
+          step: 0.1
+          mode: box
+          unit_of_measurement: kWh

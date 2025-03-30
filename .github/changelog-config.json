@@ -1,0 +1,95 @@
+{
+    "categories": [
+      {
+        "title": "## 🚀 Features",
+        "labels": ["feature", "enhancement"]
+      },
+      {
+        "title": "## 🐛 Fixes",
+        "labels": ["fix", "bug"]
+      },
+      {
+        "title": "## ⚙️ Configuration",
+        "labels": ["configuration", "config"]
+      },
+      {
+        "title": "## 📝 Documentation",
+        "labels": ["documentation"]
+      },
+      {
+        "title": "## 🛠️ Maintenance",
+        "labels": ["maintenance", "refactor", "chore"]
+      }
+    ],
+    "sort": "ASC",
+    "template": "${{CHANGELOG}}\n\n<details>\n<summary>Uncategorized</summary>\n\n${{UNCATEGORIZED}}\n</details>",
+    "pr_template": "- ${{TITLE}} (#${{NUMBER}})",
+    "empty_template": "- No changes",
+    "label_extractor": [
+      {
+        "pattern": "^feat: (.*)$",
+        "target": "$1",
+        "flags": "gim",
+        "on_property": "title",
+        "method": "replace",
+        "labels": ["feature"]
+      },
+      {
+        "pattern": "^fix: (.*)$",
+        "target": "$1",
+        "flags": "gim",
+        "on_property": "title",
+        "method": "replace",
+        "labels": ["fix"]
+      },
+      {
+        "pattern": "^docs: (.*)$",
+        "target": "$1",
+        "flags": "gim",
+        "on_property": "title",
+        "method": "replace",
+        "labels": ["documentation"]
+      },
+      {
+        "pattern": "^chore: (.*)$",
+        "target": "$1",
+        "flags": "gim",
+        "on_property": "title",
+        "method": "replace",
+        "labels": ["maintenance"]
+      },
+      {
+        "pattern": "^refactor: (.*)$",
+        "target": "$1",
+        "flags": "gim",
+        "on_property": "title",
+        "method": "replace",
+        "labels": ["maintenance"]
+      },
+      {
+        "pattern": "^config: (.*)$",
+        "target": "$1",
+        "flags": "gim",
+        "on_property": "title",
+        "method": "replace",
+        "labels": ["configuration"]
+      }
+    ],
+    "transformers": [
+      {
+        "pattern": "(\\[.*?\\]\\(.*?\\))|(\\#\\d+)",
+        "target": "",
+        "flags": "gm"
+      }
+    ],
+    "max_tags_to_fetch": 200,
+    "max_pull_requests": 200,
+    "max_back_track_time_days": 365,
+    "tag_resolver": {
+      "method": "semver",
+      "filter": {
+        "pattern": "v[0-9]+\\.[0-9]+\\.[0-9]+",
+        "flags": "gim"
+      }
+    }
+  }
