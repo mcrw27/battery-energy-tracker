@@ -1,0 +1,77 @@
+name: Bump Version
+
+on:
+  workflow_dispatch:
+    inputs:
+      version_type:
+        description: 'Type of version bump (patch, minor, major)'
+        required: true
+        default: 'patch'
+  push:
+    paths:
+      - 'custom_components/battery_energy_tracker/manifest.json'
+    branches:
+      - main
+
+jobs:
+  validate:
+    name: Validate integration
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      
+      - name: HACS validation
+        uses: hacs/action@main
+        with:
+          category: integration
+          ignore: brands
+      
+      - name: Hassfest validation
+        uses: home-assistant/actions/hassfest@master
+
+  bump-version:
+    name: Create release
+    needs: validate
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+          token: ${{ secrets.GITHUB_TOKEN }}
+      
+      # This step only runs when manually triggered
+      - name: Setup Python and bump version
+        if: github.event_name == 'workflow_dispatch'
+        id: manual_bump
+        run: |
+          pip install semver
+          python .github/scripts/bump_version.py ${{ github.event.inputs.version_type }}
+          echo "SKIP_COMMIT=false" >> $GITHUB_ENV
+      
+      # This step only runs when triggered by a push to manifest.json
+      - name: Extract version from manifest
+        if: github.event_name == 'push'
+        id: extract_version
+        run: |
+          VERSION=$(grep -o '"version": "[^"]*"' custom_components/battery_energy_tracker/manifest.json | cut -d'"' -f4)
+          echo "new_version=$VERSION" >> $GITHUB_OUTPUT
+          echo "SKIP_COMMIT=true" >> $GITHUB_ENV
+      
+      - name: Commit and push changes
+        if: env.SKIP_COMMIT == 'false'
+        run: |
+          git config --local user.email "action@github.com"
+          git config --local user.name "GitHub Action"
+          git add custom_components/battery_energy_tracker/manifest.json
+          git commit -m "Bump version to ${{ steps.manual_bump.outputs.new_version || steps.extract_version.outputs.new_version }}"
+          git push
+      
+      - name: Create release
+        uses: softprops/action-gh-release@v1
+        with:
+          tag_name: v${{ steps.manual_bump.outputs.new_version || steps.extract_version.outputs.new_version }}
+          name: Release v${{ steps.manual_bump.outputs.new_version || steps.extract_version.outputs.new_version }}
+          draft: false
+          prerelease: false

@@ -1,0 +1,36 @@
+{
+    "config": {
+      "step": {
+        "user": {
+          "title": "Battery Energy Tracker",
+          "description": "Track energy usage and charge status for your battery system",
+          "data": {
+            "battery_count": "Number of batteries",
+            "charge_rate": "Charging rate (Watts)",
+            "startup_delay": "Startup delay (seconds)",
+            "scale_factor": "Scale factor for counter values"
+          }
+        }
+      },
+      "error": {
+        "unknown": "Unexpected error"
+      },
+      "abort": {
+        "already_configured": "Battery Energy Tracker is already configured"
+      }
+    },
+    "options": {
+      "step": {
+        "init": {
+          "title": "Battery Energy Tracker Options",
+          "description": "Configure Battery Energy Tracker settings",
+          "data": {
+            "battery_count": "Number of batteries",
+            "charge_rate": "Charging rate (Watts)",
+            "startup_delay": "Startup delay (seconds)",
+            "scale_factor": "Scale factor for counter values"
+          }
+        }
+      }
+    }
+  }

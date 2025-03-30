@@ -1,0 +1,12 @@
+{
+    "name": "Battery Energy Tracker",
+    "content_in_root": false,
+    "render_readme": true,
+    "country": [
+      "ALL"
+    ],
+    "homeassistant": "2023.6.0",
+    "zip_release": false,
+    "filename": "",
+    "hide_default_branch": true
+  }

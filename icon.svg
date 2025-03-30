@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 300">
+  <!-- Background -->
+  <rect width="300" height="300" rx="30" ry="30" fill="#1c3b56" />
+  
+  <!-- Battery Outline -->
+  <rect x="60" y="90" width="180" height="120" rx="15" ry="15" fill="#304a63" stroke="#4fc3f7" stroke-width="8" />
+  
+  <!-- Battery Terminal -->
+  <rect x="240" y="120" width="20" height="60" rx="5" ry="5" fill="#4fc3f7" />
+  
+  <!-- Energy Level Bars -->
+  <rect x="80" y="110" width="30" height="80" rx="5" ry="5" fill="#4fc3f7" />
+  <rect x="125" y="110" width="30" height="80" rx="5" ry="5" fill="#4fc3f7" />
+  <rect x="170" y="110" width="30" height="80" rx="5" ry="5" fill="#4fc3f7" />
+  
+  <!-- Energy Flow Symbol -->
+  <path d="M150,40 L180,70 L160,70 L160,140 L140,140 L140,70 L120,70 Z" fill="#ffeb3b" />
+  <path d="M150,260 L120,230 L140,230 L140,160 L160,160 L160,230 L180,230 Z" fill="#ffeb3b" />
+  
+  <!-- Tracking Symbol -->
+  <circle cx="85" cy="265" r="15" fill="#4fc3f7" />
+  <circle cx="150" cy="265" r="15" fill="#4fc3f7" />
+  <circle cx="215" cy="265" r="15" fill="#4fc3f7" />
+  <line x1="85" y1="265" x2="215" y2="265" stroke="#4fc3f7" stroke-width="6" />
+</svg>
