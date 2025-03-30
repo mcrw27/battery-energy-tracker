@@ -1,8 +1,8 @@
 # Battery Energy Tracker
 
 [![hacs_badge](https://img.shields.io/badge/HACS-Custom-orange.svg)](https://github.com/custom-components/hacs)
-[![GitHub Release](https://img.shields.io/github/release/mcrw27/battery-energy-tracker.svg)](https://github.com/mcrw27/battery-energy-tracker/releases)
-[![GitHub License](https://img.shields.io/github/license/mcrw27/battery-energy-tracker.svg)](https://github.com/mcrw27/battery-energy-tracker/blob/main/LICENSE)
+[![GitHub Release](https://img.shields.io/github/release/mcrw27/battery-energy-tracker/battery_energy_tracer/icon.svg)](https://github.com/mcrw27/battery-energy-tracker/releases)
+[![GitHub License](https://img.shields.io/github/license/mcrw27/battery-energy-tracker/battery_energy_tracer/icon.svg)](https://github.com/mcrw27/battery-energy-tracker/blob/main/LICENSE)
 
 A Home Assistant integration that tracks battery energy data, handling counter rollovers and providing accurate charge/discharge metrics.
 
@@ -154,11 +154,11 @@ The integration creates the following sensors:
 
 ### Energy Overview Card
 
-![Energy Overview](https://raw.githubusercontent.com/mcrw27/battery-energy-tracker/main/battery-energy-tracker.svg)
+![Energy Overview](https://raw.githubusercontent.com/mcrw27/battery-energy-tracker/main/battery-energy-tracker/battery_energy_tracer/icon.svg)
 
 ### Battery Status Card
 
-![Battery Status](https://raw.githubusercontent.com/mcrw27/battery-energy-tracker/main/battery-energy-tracker.svg)
+![Battery Status](https://raw.githubusercontent.com/mcrw27/battery-energy-tracker/main/battery-energy-tracker/battery_energy_tracer/icon.svg)
 
 ## Troubleshooting
 

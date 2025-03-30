@@ -2,8 +2,8 @@
 
 Track energy usage and charge status for your battery system with accurate metrics and detailed insights.
 
-[![GitHub Release](https://img.shields.io/github/release/mcrw27/battery-energy-tracker.svg)](https://github.com/mcrw27/battery-energy-tracker/releases)
-[![GitHub License](https://img.shields.io/github/license/mcrw27/battery-energy-tracker.svg)](LICENSE)
+[![GitHub Release](https://img.shields.io/github/release/mcrw27/battery-energy-tracker/battery_energy_tracer/icon.svg)](https://github.com/mcrw27/battery-energy-tracker/releases)
+[![GitHub License](https://img.shields.io/github/license/mcrw27/battery-energy-tracker/battery_energy_tracer/icon.svg)](LICENSE)
 
 ## Features
 
